@@ -25,7 +25,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/", name="ingresar")
+     * @Route("/ingresar", name="ingresar")
      */
     public function ingresarAction(Request $request)
     {
