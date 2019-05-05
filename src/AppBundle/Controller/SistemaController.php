@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SistemaController extends Controller
 {
     /**
-     * @Route("/sistema/profesionales", name="profesionales")
+     * @Route("sistema/profesionales", name="profesionales")
      */
     public function profesionalesAction(Request $request)
     {

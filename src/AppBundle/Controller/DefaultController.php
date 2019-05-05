@@ -57,7 +57,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Cartilla", name="cartilla")
+     * @Route("/cartilla", name="cartilla")
      */
     public function profesionalesCartillaAction(Request $request)
     {
