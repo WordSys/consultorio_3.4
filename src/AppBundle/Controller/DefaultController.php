@@ -39,4 +39,36 @@ class DefaultController extends Controller
         */
 
     }
+
+    /**
+     * @Route("/nosotros", name="nosotros")
+     */
+    public function nosotrosAction(Request $request)
+    {
+
+        return $this->render('home/nosotros.html.twig');
+        // replace this example code with whatever you need
+        /*
+        return $this->render('default/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+        */
+
+    }
+
+    /**
+     * @Route("/Cartilla", name="cartilla")
+     */
+    public function profesionalesCartillaAction(Request $request)
+    {
+
+        return $this->render('home/profesionales.html.twig');
+        // replace this example code with whatever you need
+        /*
+        return $this->render('default/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+        */
+
+    }
 }
