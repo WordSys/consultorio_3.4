@@ -11,7 +11,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-
+    <body>
         <!-- Menú de navegación -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
@@ -46,18 +46,21 @@
             </div>
           </div>
         </nav>
-    <body>
-        {% block body %}{% endblock %}
+
+      {% block body %}
+
+          <!-- Footer -->
+          <footer class="py-5 bg-dark">
+            <div class="container">
+              <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+            </div>
+            <!-- /.container -->
+          </footer>
+      {% endblock %}
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         {% block javascripts %}{% endblock %}
     </body>
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+
 </html>
