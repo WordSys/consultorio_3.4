@@ -30,7 +30,7 @@ class SistemaController extends Controller
     public function pacientesAction(Request $request)
     {
 
-        return $this->render('sistema/pacientess.html.twig');
+        return $this->render('sistema/pacientes.html.twig');
         // replace this example code with whatever you need
         /*
         return $this->render('default/index.html.twig', [
