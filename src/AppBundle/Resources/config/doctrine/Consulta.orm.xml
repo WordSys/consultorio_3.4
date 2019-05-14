@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Consulta" table="consulta">
+    <indexes>
+      <index name="consulta-paciente_idx" columns="id_paciente"/>
+      <index name="consulta-profesional_idx" columns="id_profesional"/>
+      <index name="consulta-usuario_idx" columns="id_usuario"/>
+      <index name="consulta-tconsulta_idx" columns="id_tconsulta"/>
+    </indexes>
+    <id name="idConsulta" type="integer" column="id_consulta">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fecha" type="date" column="fecha" nullable="false"/>
+    <many-to-one field="idPaciente" target-entity="Paciente" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_paciente" referenced-column-name="id_paciente"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idProfesional" target-entity="Profesional" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_profesional" referenced-column-name="id_profesional"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idTconsulta" target-entity="TipoConsulta" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_tconsulta" referenced-column-name="id_tconsulta"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUsuario" target-entity="Usuario" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_usuario" referenced-column-name="id_usuario"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

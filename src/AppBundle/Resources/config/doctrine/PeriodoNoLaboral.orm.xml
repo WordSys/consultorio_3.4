@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\PeriodoNoLaboral" table="periodo_no_laboral">
+    <indexes>
+      <index name="pnl-profesional_idx" columns="id_profesional"/>
+    </indexes>
+    <id name="idPnlaboral" type="integer" column="id_pnlaboral">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="desde" type="date" column="desde" nullable="false"/>
+    <field name="hasta" type="date" column="hasta" nullable="false"/>
+    <many-to-one field="idProfesional" target-entity="Profesional" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_profesional" referenced-column-name="id_profesional"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

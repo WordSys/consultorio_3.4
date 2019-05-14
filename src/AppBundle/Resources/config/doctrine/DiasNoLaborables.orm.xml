@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\DiasNoLaborables" table="dias_no_laborables">
+    <id name="idDnlaborable" type="integer" column="id_dnlaborable">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="diaNoLaborable" type="date" column="dia_no_laborable" nullable="false"/>
+  </entity>
+</doctrine-mapping>

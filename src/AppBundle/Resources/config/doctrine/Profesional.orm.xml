@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Profesional" table="profesional">
+    <indexes>
+      <index name="profesional-domicilio_idx" columns="id_domicilio"/>
+    </indexes>
+    <id name="idProfesional" type="integer" column="id_profesional">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="apellido" type="string" column="apellido" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dni" type="integer" column="dni" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="idEspecialidad" type="integer" column="id_especialidad" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <many-to-one field="idDomicilio" target-entity="Domicilio" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_domicilio" referenced-column-name="id_domicilio"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idObsoc" target-entity="ObraSocial" inversed-by="idProfesional" fetch="LAZY">
+      <join-table name="profesional_obsocial">
+        <join-columns>
+          <join-column name="id_profesional" referenced-column-name="id_profesional"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_obsoc" referenced-column-name="id_obsoc"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

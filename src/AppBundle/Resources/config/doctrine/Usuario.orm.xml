@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Usuario" table="usuario">
+    <indexes>
+      <index name="usuario-domicilio_idx" columns="id_domicilio"/>
+      <index name="usuario-obsocial_idx" columns="id_obsoc"/>
+    </indexes>
+    <id name="idUsuario" type="integer" column="id_usuario">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="user" type="string" column="user" length="8" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pass" type="string" column="pass" length="8" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="apellido" type="string" column="apellido" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nombre" type="string" column="nombre" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dni" type="integer" column="dni" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="fnac" type="datetime" column="fnac" nullable="false"/>
+    <many-to-one field="idDomicilio" target-entity="Domicilio" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_domicilio" referenced-column-name="id_domicilio"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idObsoc" target-entity="ObraSocial" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_obsoc" referenced-column-name="id_obsoc"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

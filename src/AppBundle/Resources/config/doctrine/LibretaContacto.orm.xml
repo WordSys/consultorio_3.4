@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\LibretaContacto" table="libreta_contacto">
+    <indexes>
+      <index name="libreta-contacto_idx" columns="id_tcontacto"/>
+      <index name="libreta-domicilio_idx" columns="id_domicilio"/>
+    </indexes>
+    <id name="idLcontacto" type="integer" column="id_lcontacto">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contacto" type="string" column="contacto" length="20" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idTcontacto" target-entity="Tcontacto" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_tcontacto" referenced-column-name="id_tcontacto"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idDomicilio" target-entity="Domicilio" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_domicilio" referenced-column-name="id_domicilio"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
