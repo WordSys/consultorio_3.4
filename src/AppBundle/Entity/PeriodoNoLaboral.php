@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PeriodoNoLaboral
  *
- * @ORM\Table(name="periodo_no_laboral", indexes={@ORM\Index(name="pnl-profesional_idx", columns={"id_profesional"})})
+ * @ORM\Table(name="periodo_no_laboral")
  * @ORM\Entity
  */
 class PeriodoNoLaboral
